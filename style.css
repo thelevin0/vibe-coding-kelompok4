@@ -1,0 +1,411 @@
+/* ============ RESET & BASE ============ */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+  background-color: #f4f6f8;
+  color: #22303f;
+}
+
+.hidden {
+  display: none !important;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* ============ NOTIFIKASI ============ */
+.notif {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  max-width: 90%;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.notif.error {
+  background-color: #fdecea;
+  color: #a12622;
+  border: 1px solid #f3b8b5;
+}
+
+.notif.success {
+  background-color: #e8f6ec;
+  color: #1e6b39;
+  border: 1px solid #b6e3c3;
+}
+
+/* ============ LOGIN ============ */
+#section-login {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.login-box {
+  background: #ffffff;
+  padding: 32px 28px;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 360px;
+}
+
+.login-box h1 {
+  margin: 0 0 4px 0;
+  font-size: 22px;
+  color: #17324a;
+}
+
+.login-box .subtitle {
+  margin: 0 0 20px 0;
+  font-size: 14px;
+  color: #6b7c8c;
+}
+
+.login-box label {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 4px;
+  color: #3c4d5e;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 9px 10px;
+  margin-bottom: 14px;
+  border: 1px solid #cfd8e0;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 10px;
+  background-color: #2f6fed;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.login-box button:hover {
+  background-color: #2559c9;
+}
+
+.login-box .hint {
+  margin-top: 14px;
+  font-size: 12px;
+  color: #8b98a5;
+  text-align: center;
+}
+
+/* ============ APP SHELL ============ */
+.app {
+  min-height: 100vh;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 14px 24px;
+  background-color: #17324a;
+  color: #fff;
+}
+
+.topbar-title {
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.topbar-nav {
+  display: flex;
+  gap: 8px;
+}
+
+.nav-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #d8e2ec;
+  padding: 7px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.nav-btn.active {
+  background-color: #2f6fed;
+  border-color: #2f6fed;
+  color: #fff;
+}
+
+.topbar-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+}
+
+#btn-logout {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #d8e2ec;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+#btn-logout:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.app-section {
+  padding: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* ============ TOOLBAR (search + filter) ============ */
+.toolbar {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+#input-search {
+  flex: 1;
+  min-width: 200px;
+  padding: 10px 12px;
+  border: 1px solid #cfd8e0;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+#select-filter {
+  padding: 10px 12px;
+  border: 1px solid #cfd8e0;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: #fff;
+}
+
+/* ============ BOOK GRID ============ */
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.book-card {
+  background-color: #fff;
+  border: 1px solid #e2e8ee;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.book-card h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #17324a;
+}
+
+.book-card .author {
+  font-size: 13px;
+  color: #6b7c8c;
+  margin: 0;
+}
+
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  width: fit-content;
+}
+
+.badge.available {
+  background-color: #e8f6ec;
+  color: #1e6b39;
+}
+
+.badge.unavailable {
+  background-color: #fdecea;
+  color: #a12622;
+}
+
+.book-card .btn-detail {
+  margin-top: 8px;
+  padding: 8px 12px;
+  border: 1px solid #2f6fed;
+  background-color: #fff;
+  color: #2f6fed;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.book-card .btn-detail:hover {
+  background-color: #2f6fed;
+  color: #fff;
+}
+
+.empty-msg {
+  color: #8b98a5;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* ============ DETAIL BUKU ============ */
+.btn-back {
+  background: none;
+  border: none;
+  color: #2f6fed;
+  font-size: 14px;
+  margin-bottom: 16px;
+  padding: 0;
+}
+
+.detail-card {
+  background-color: #fff;
+  border: 1px solid #e2e8ee;
+  border-radius: 8px;
+  padding: 24px;
+  max-width: 600px;
+}
+
+.detail-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.detail-header h2 {
+  margin: 0;
+  color: #17324a;
+}
+
+.detail-meta {
+  font-size: 14px;
+  margin: 6px 0;
+  color: #3c4d5e;
+}
+
+.detail-sinopsis {
+  font-size: 14px;
+  color: #3c4d5e;
+  line-height: 1.5;
+  margin-top: 4px;
+}
+
+.btn-primary {
+  margin-top: 18px;
+  padding: 11px 18px;
+  background-color: #2f6fed;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  background-color: #2559c9;
+}
+
+.btn-primary:disabled {
+  background-color: #b6c2cf;
+  cursor: not-allowed;
+}
+
+/* ============ INFORMASI PEMINJAMAN ============ */
+#section-loans h2 {
+  color: #17324a;
+  margin-bottom: 4px;
+}
+
+.quota-info {
+  font-size: 14px;
+  color: #3c4d5e;
+  margin-bottom: 20px;
+}
+
+.loan-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.loan-card {
+  background-color: #fff;
+  border: 1px solid #e2e8ee;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.loan-card .loan-info h3 {
+  margin: 0 0 4px 0;
+  font-size: 15px;
+  color: #17324a;
+}
+
+.loan-card .loan-info p {
+  margin: 2px 0;
+  font-size: 13px;
+  color: #6b7c8c;
+}
+
+.btn-return {
+  padding: 8px 14px;
+  background-color: #fff;
+  border: 1px solid #d9534f;
+  color: #d9534f;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.btn-return:hover {
+  background-color: #d9534f;
+  color: #fff;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 600px) {
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .app-section {
+    padding: 16px;
+  }
+}
