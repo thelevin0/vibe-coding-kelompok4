@@ -1,19 +1,12 @@
 /* =========================================================
    KONSTANTA & KONFIGURASI MICROSERVICE
    ========================================================= */
+const AUTH_API = 'http://localhost:3003/api';
 const BOOK_API = 'http://localhost:3001/api/books';
 const LOAN_API = 'http://localhost:3002/api/loans';
 
 const STORAGE_KEYS = { SESSION: "lib_session" };
 const MAX_ACTIVE_LOANS = 3;
-
-// Data mahasiswa tetap untuk prototype login
-const STUDENTS = [
-  { nim: "2201001", password: "pass123", nama: "Ayu Lestari" },
-  { nim: "2201002", password: "pass123", nama: "Budi Santoso" },
-  { nim: "2201003", password: "pass123", nama: "Citra Ramadhani" },
-  { nim: "2201004", password: "pass123", nama: "Dimas Prakoso" }
-];
 
 let currentDetailBookId = null;
 let currentDetailBookTitle = null;
@@ -46,18 +39,42 @@ function formatDate(isoString) {
 /* =========================================================
    AUTENTIKASI (LOGIN / LOGOUT)
    ========================================================= */
-function handleLogin(event) {
+async function handleLogin(event) {
   event.preventDefault();
+
   const nim = document.getElementById("input-nim").value.trim();
   const password = document.getElementById("input-password").value;
-  const student = STUDENTS.find((s) => s.nim === nim && s.password === password);
 
-  if (!student) {
-    showNotif("NIM atau kata sandi salah. Silakan coba lagi.", "error");
-    return;
+  try {
+    const response = await fetch(`${AUTH_API}/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        nim: nim,
+        password: password
+      })
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      showNotif(data.message || "NIM atau kata sandi salah.", "error");
+      return;
+    }
+
+    saveSession(data.user);
+    showNotif(data.message || "Login berhasil.", "success");
+    enterApp();
+
+  } catch (error) {
+    console.error("Auth Service Error:", error);
+    showNotif(
+      "Tidak dapat terhubung ke Auth Service (port 3003).",
+      "error"
+    );
   }
-  saveSession({ nim: student.nim, nama: student.nama });
-  enterApp();
 }
 
 function handleLogout() {
@@ -165,7 +182,7 @@ async function renderDetail(bookId) {
   try {
     const response = await fetch(`${BOOK_API}/${bookId}`);
     if (!response.ok) throw new Error("Buku tidak ditemukan");
-    
+
     const book = await response.json();
     const isAvailable = book.stok > 0;
     currentDetailBookTitle = book.judul; // Simpan judul untuk peminjaman
@@ -315,7 +332,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("btn-pinjam").addEventListener("click", handleBorrow);
 
   const session = getSession();
-  if (session) { enterApp(); } 
+  if (session) { enterApp(); }
   else {
     document.getElementById("section-login").classList.remove("hidden");
     document.getElementById("app").classList.add("hidden");

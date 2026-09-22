@@ -15,13 +15,18 @@ Proyek ini adalah pengembangan dari aplikasi monolith sebelumnya menjadi arsitek
 
 ## Cara Menjalankan Aplikasi
 
-**1. Menjalankan Book Service**
-- Buka terminal, masuk ke folder `book-service`.
+**1. Menjalankan Auth Service**
+- Buka terminal, masuk ke folder `auth-service` dengan cara `cd auth-service`.
+- Jalankan perintah `npm install`.
+- Jalankan perintah `npm start`.
+
+**2. Menjalankan Book Service**
+- Buka terminal, masuk ke folder `book-service` dengan cara `cd auth-service`.
 - Jalankan perintah `npm install`.
 - Jalankan perintah `npm start`.
 
 **2. Menjalankan Loan Service**
-- Buka terminal baru, masuk ke folder `loan-service`.
+- Buka terminal baru, masuk ke folder `loan-service` dengan cara `cd auth-service`.
 - Jalankan perintah `npm install`.
 - Jalankan perintah `npm start`.
 

@@ -23,13 +23,26 @@ app.get('/api/loans/:nim', (req, res) => {
 app.post('/api/loans', async (req, res) => {
   const { nim, bookId, judul } = req.body;
 
-  // Validasi: Cek batas maksimal 3 buku aktif
   const activeLoans = loans.filter(loan => loan.nim === nim);
+
   if (activeLoans.length >= MAX_ACTIVE_LOANS) {
-    return res.status(400).json({ message: `Gagal: Anda sudah memiliki ${MAX_ACTIVE_LOANS} buku aktif.` });
+    return res.status(400).json({
+      message: `Gagal: Anda sudah memiliki ${MAX_ACTIVE_LOANS} buku aktif.`
+    });
   }
 
+  const alreadyBorrowed = activeLoans.some(
+  loan => loan.bookId === bookId
+);
+
+if (alreadyBorrowed) {
+  return res.status(400).json({
+    message: "Anda sudah meminjam buku ini."
+  });
+}
+
   try {
+    // lanjut seperti kode kamu...
     // Komunikasi Antar-Service: Minta Book Service mengurangi stok
     await axios.put(`${BOOK_SERVICE_URL}/${bookId}/reduce-stock`);
 
