@@ -31,6 +31,6 @@ Proyek ini adalah pengembangan dari aplikasi monolith sebelumnya menjadi arsitek
 - Jalankan perintah `npm start`.
 
 **3. Menjalankan Frontend**
-- Buka folder `frontend` di File Explorer.
-- Klik ganda file `index.html` untuk membukanya di browser.
+- Intall Live Server.
+- Buka halamaan `localhost://5500/frontend`.
 - Gunakan akun mahasiswa uji coba untuk login (Contoh: NIM `2201002`, Password `pass123`).
