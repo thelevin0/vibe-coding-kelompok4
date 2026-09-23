@@ -1,4 +1,3 @@
-```markdown
 # Sistem Peminjaman Buku Perpustakaan (Microservice)
 
 **Kelompok 4**
@@ -47,7 +46,6 @@ perpustakaan-microservice/
 ├── .gitignore              # Pengecualian file (memastikan node_modules tidak ikut ke repository)
 ├── Diagram Kelompok 4 (Microservice).jpg # Gambar arsitektur sistem
 └── README.md               # Dokumentasi utama proyek
-
 ```
 
 ## Penjelasan Fungsi Tiap Service
