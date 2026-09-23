@@ -31,21 +31,34 @@ Sistem terdiri dari tiga komponen utama yang saling berinteraksi:
 ## Struktur Folder
 
 ```text
-perpustakaan-microservice/
-├── frontend/               # Antarmuka pengguna (UI)
+perpustakaan-vibecoding/
+├── auth-service/
+│   ├── package-lock.json
+│   ├── package.json
+│   └── server.js
+├── book-service/
+│   ├── package-lock.json
+│   ├── package.json
+│   └── server.js
+├── loan-service/
+│   ├── package-lock.json
+│   ├── package.json
+│   └── server.js
+├── frontend/
 │   ├── index.html
-│   ├── style.css
-│   └── script.js
-├── book-service/           # Layanan manajemen data buku
-│   ├── package.json
-│   └── server.js
-├── loan-service/           # Layanan manajemen transaksi peminjaman
-│   ├── package.json
-│   └── server.js
-├── .env.example            # Contoh variabel environment
-├── .gitignore              # Pengecualian file (memastikan node_modules tidak ikut ke repository)
-├── Diagram Kelompok 4 (Microservice).jpg # Gambar arsitektur sistem
-└── README.md               # Dokumentasi utama proyek
+│   ├── script.js
+│   └── style.css
+├── Docs/
+│   ├── AI-Tools.md
+│   ├── Diagram Kelompok 4 (Microservice).jpg
+│   ├── prompts.md
+│   └── prompt-debugging-and-fixed.md
+├── .env.example
+├── .gitignore
+├── index.html
+├── script.js
+├── style.css
+└── README.md
 ```
 
 ## Fungsi Tiap Service
