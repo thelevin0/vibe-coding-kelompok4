@@ -29,5 +29,23 @@
 
 ## 5. Kendala & Penyesuaian dari Hasil AI
 
-* **Konteks Environment (Terminal):** Kode yang dihasilkan AI sudah tepat secara logika dan sintaks. Namun, intervensi manual tetap diperlukan untuk memastikan posisi direktori terminal (`cd`) sudah tepat berada di dalam folder spesifik masing-masing service sebelum mengeksekusi `npm install` dan `npm start`.
-* **Keamanan Sistem Operasi:** Script eksekusi bawaan Node.js (`npm`) awalnya ditolak oleh sistem keamanan Windows (*PowerShell Execution Policy*). Developer harus menyesuaikan pengaturan hak akses terminal terlebih dahulu agar implementasi kode AI dapat dieksekusi.
+Selama proses pengembangan sistem perpustakaan berbasis Microservices dengan bantuan AI, ditemukan beberapa kendala yang memerlukan penyesuaian dan intervensi manual dari developer, yaitu:
+
+* **Konteks Environment (Terminal):** Kode yang dihasilkan AI sudah tepat secara logika dan sintaks. Namun, intervensi manual tetap diperlukan untuk memastikan posisi direktori terminal (`cd`) sudah tepat berada di dalam folder spesifik masing-masing service sebelum menjalankan `npm install` dan `npm start`.
+
+* **Keamanan Sistem Operasi:** Script eksekusi bawaan Node.js (`npm`) awalnya ditolak oleh sistem keamanan Windows (*PowerShell Execution Policy*). Developer perlu menyesuaikan pengaturan hak akses terminal agar perintah yang diperlukan dapat dijalankan.
+
+* **Integrasi Antar-Microservices:** Loan Service perlu berkomunikasi dengan Book Service untuk memperbarui stok buku ketika terjadi peminjaman maupun pengembalian. Implementasi ini membutuhkan penyesuaian pada endpoint dan mekanisme komunikasi antar-service agar perubahan stok sesuai dengan transaksi.
+
+* **Validasi Peminjaman:** Diperlukan penyesuaian pada logic peminjaman agar mahasiswa tidak dapat meminjam lebih dari 3 buku dan tidak dapat meminjam buku yang sama dua kali selama transaksi sebelumnya masih aktif.
+
+* **Ketidaksesuaian Data Frontend dan Backend:** Pada tahap pengujian ditemukan bahwa data peminjaman yang ditampilkan pada browser berbeda dengan data yang ditampilkan melalui Postman. Setelah dilakukan pemeriksaan, frontend masih menggunakan `localStorage` sebagai sumber data, sedangkan backend menggunakan data dari Microservices.
+
+* **Penyesuaian Sumber Data Frontend:** Frontend kemudian disesuaikan agar data buku dan peminjaman diambil langsung melalui API dari Book Service dan Loan Service. Hal ini dilakukan agar data yang ditampilkan pada website sesuai dengan data yang terdapat pada backend.
+
+* **Error pada Pengembalian Buku:** Saat proses pengembalian buku ditemukan pesan **"Data peminjaman tidak ditemukan"**. Penyebabnya perlu ditelusuri dengan memeriksa `loanId`, endpoint yang digunakan, data peminjaman yang dikirim frontend, serta kondisi data pada Loan Service.
+
+* **Testing dan Debugging API:** Pengujian menggunakan Postman dilakukan untuk memastikan setiap service dan endpoint berjalan sesuai kebutuhan. Pengujian mencakup login, menampilkan data buku, peminjaman, validasi peminjaman buku yang sama, batas maksimal 3 buku, pengembalian, serta pengecekan perubahan stok dan data setelah transaksi.
+
+Secara keseluruhan, hasil yang diberikan AI dapat membantu mempercepat proses implementasi, tetapi tetap diperlukan penyesuaian manual terutama pada **environment, konfigurasi sistem operasi, integrasi antar-service, sinkronisasi data frontend-backend, serta debugging berdasarkan kondisi aktual aplikasi**.
+
