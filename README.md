@@ -100,7 +100,3 @@ perpustakaan-microservice/
 * Buka folder proyek di VSCode.
 * Aktifkan ekstensi **Live Server** (klik *Go Live* pada file `index.html`).
 * Buka browser pada alamat yang diberikan. Gunakan akun uji coba untuk login (Contoh: NIM `2201002`, Password `pass123`).
-
-```
-
-```
