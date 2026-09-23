@@ -24,7 +24,7 @@ Ketentuan Book Service:
 5. Service ini harus berjalan di port 3001.
 6. Tambahkan middleware CORS agar bisa diakses oleh Frontend.
 
-Berikan kode package.json (dependencies yang dibutuhkan) dan server.js (kode utamanya). Jelaskan juga cara menjalankannya."
+Berikan kode package.json (dependencies yang dibutuhkan) dan server.js (kode utamanya). Jelaskan juga cara menjalankannya."```
 
 3. Arsitektur Sebelum dan Sesudah Dikembangkan
 Sebelum (Monolith): Seluruh logika aplikasi (login, daftar buku, peminjaman) menyatu di frontend menggunakan HTML, CSS, Vanilla JavaScript. Data disimpan secara lokal menggunakan browser localStorage.
