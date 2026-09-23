@@ -51,8 +51,8 @@ perpustakaan-vibecoding/
 ├── Docs/
 │   ├── AI-Tools.md
 │   ├── Diagram Kelompok 4 (Microservice).jpg
-│   ├── prompts.md
-│   └── prompt-debugging-and-fixed.md
+│   └── prompts.md
+│ 
 ├── .env.example
 ├── .gitignore
 ├── index.html
