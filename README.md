@@ -48,7 +48,7 @@ perpustakaan-microservice/
 └── README.md               # Dokumentasi utama proyek
 ```
 
-## Penjelasan Fungsi Tiap Service
+## Fungsi Tiap Service
 
 1. **Frontend (Klien):** Menyediakan halaman web antarmuka agar mahasiswa dapat melakukan login, melihat daftar buku, mencari/memfilter buku, serta mengeksekusi aksi pinjam dan kembalikan buku.
 2. **Book Service (Port 3001):** Bertanggung jawab penuh atas entitas buku. Menangani filter ketersediaan, pencarian judul, dan manipulasi jumlah stok buku secara independen.
