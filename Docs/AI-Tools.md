@@ -56,7 +56,3 @@ Berikan kode package.json (dependencies yang dibutuhkan) dan server.js (kode uta
 
 * **Konteks Environment (Terminal):** Kode yang dihasilkan AI sudah tepat secara logika dan sintaks. Namun, intervensi manual tetap diperlukan untuk memastikan posisi direktori terminal (`cd`) sudah tepat berada di dalam folder spesifik masing-masing service sebelum mengeksekusi `npm install` dan `npm start`.
 * **Keamanan Sistem Operasi:** Script eksekusi bawaan Node.js (`npm`) awalnya ditolak oleh sistem keamanan Windows (*PowerShell Execution Policy*). Developer harus menyesuaikan pengaturan hak akses terminal terlebih dahulu agar implementasi kode AI dapat dieksekusi.
-
-```
-
-```
