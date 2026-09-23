@@ -12,7 +12,7 @@ Proyek ini adalah pengembangan dari aplikasi monolith (sebelumnya menggunakan Va
 
 ## Arsitektur Sistem
 
-![Diagram Arsitektur](./Diagram%20Kelompok%204%20(Microservice).jpg)
+![Diagram Arsitektur](Docs/Diagram%20Kelompok%204%20(Microservice).jpg)
 
 Sistem terdiri dari tiga komponen utama yang saling berinteraksi:
 1. **Frontend:** Berkomunikasi dengan *Book Service* untuk menampilkan daftar buku, dan dengan *Loan Service* untuk memproses peminjaman/pengembalian.
