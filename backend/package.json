@@ -1,0 +1,18 @@
+{
+  "name": "perpustakaan-backend",
+  "version": "1.0.0",
+  "description": "Backend terpadu sistem peminjaman buku perpustakaan",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "Kelompok 4",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "mysql2": "^3.24.5"
+  }
+}

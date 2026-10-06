@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perpustakaan Kampus - Peminjaman Buku</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============ NOTIFIKASI GLOBAL ============ -->
+  <div id="notif" class="notif hidden"></div>
+
+  <!-- ============ SECTION: LOGIN ============ -->
+  <section id="section-login" class="section">
+    <div class="login-box">
+      <h1>Perpustakaan Kampus</h1>
+      <p class="subtitle">Masuk untuk mulai meminjam buku</p>
+
+      <form id="form-login">
+        <label for="input-nim">NIM</label>
+        <input type="text" id="input-nim" placeholder="Contoh: 2201001" autocomplete="off" required />
+
+        <label for="input-password">Kata Sandi</label>
+        <input type="password" id="input-password" placeholder="Kata sandi" required />
+
+        <button type="submit">Masuk</button>
+      </form>
+
+      <p class="hint">Gunakan akun mahasiswa uji coba yang telah disediakan.</p>
+    </div>
+  </section>
+
+  <!-- ============ APP (setelah login) ============ -->
+  <div id="app" class="app hidden">
+
+    <header class="topbar">
+      <div class="topbar-title">Perpustakaan Kampus</div>
+      <nav class="topbar-nav">
+        <button id="nav-books" class="nav-btn active">Daftar Buku</button>
+        <button id="nav-loans" class="nav-btn">Peminjaman Saya</button>
+      </nav>
+      <div class="topbar-user">
+        <span id="user-name"></span>
+        <button id="btn-logout">Keluar</button>
+      </div>
+    </header>
+
+    <!-- ============ SECTION: DAFTAR BUKU ============ -->
+    <section id="section-books" class="section app-section">
+      <div class="toolbar">
+        <input type="text" id="input-search" placeholder="Cari berdasarkan judul buku..." />
+        <select id="select-filter">
+          <option value="semua">Semua</option>
+          <option value="tersedia">Tersedia</option>
+          <option value="tidak-tersedia">Tidak Tersedia</option>
+        </select>
+      </div>
+
+      <div id="book-list" class="book-grid"></div>
+      <p id="book-empty" class="empty-msg hidden">Tidak ada buku yang sesuai dengan pencarian/filter.</p>
+    </section>
+
+    <!-- ============ SECTION: DETAIL BUKU ============ -->
+    <section id="section-detail" class="section app-section hidden">
+      <button id="btn-back-to-books" class="btn-back">&larr; Kembali ke Daftar Buku</button>
+
+      <div class="detail-card">
+        <div class="detail-header">
+          <h2 id="detail-judul"></h2>
+          <span id="detail-status" class="badge"></span>
+        </div>
+        <p class="detail-meta"><strong>Penulis:</strong> <span id="detail-penulis"></span></p>
+        <p class="detail-meta"><strong>Stok:</strong> <span id="detail-stok"></span></p>
+        <p class="detail-meta"><strong>Lokasi/Rak:</strong> <span id="detail-lokasi"></span></p>
+        <p class="detail-meta"><strong>Sinopsis:</strong></p>
+        <p id="detail-sinopsis" class="detail-sinopsis"></p>
+
+        <button id="btn-pinjam" class="btn-primary">Pinjam Buku</button>
+      </div>
+    </section>
+
+    <!-- ============ SECTION: INFORMASI PEMINJAMAN ============ -->
+    <section id="section-loans" class="section app-section hidden">
+      <h2>Peminjaman Saya</h2>
+      <p id="quota-info" class="quota-info"></p>
+
+      <div id="loan-list" class="loan-list"></div>
+      <p id="loan-empty" class="empty-msg hidden">Anda belum meminjam buku apa pun.</p>
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
