@@ -1,7 +1,11 @@
 const db = require('../db');
 const jwt = require('jsonwebtoken');
 
-const JWT_SECRET = process.env.JWT_SECRET || 'rahasia_kelompok4';
+const JWT_SECRET = process.env.JWT_SECRET;
+
+if (!JWT_SECRET) {
+  throw new Error('JWT_SECRET belum diset di file .env');
+}
 const JWT_EXPIRES = process.env.JWT_EXPIRES || '1d';
 
 async function login(req, res) {

@@ -7,8 +7,11 @@ const {
   returnLoan
 } = require('../controllers/loanController');
 
-router.get('/loans/:nim', getLoans);
-router.post('/loans', createLoan);
-router.post('/loans/:loanId/return', returnLoan);
+const { verifyToken } = require('../middleware/authMiddleware');
+
+// Semua fitur peminjaman wajib login
+router.get('/loans', verifyToken, getLoans);
+router.post('/loans', verifyToken, createLoan);
+router.post('/loans/:loanId/return', verifyToken, returnLoan);
 
 module.exports = router;

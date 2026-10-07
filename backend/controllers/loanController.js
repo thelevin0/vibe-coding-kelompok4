@@ -28,6 +28,8 @@ function toLoan(row) {
 // Riwayat peminjaman satu mahasiswa (aktif + sudah dikembalikan)
 async function getLoans(req, res) {
   try {
+    const nim = req.user.nim;
+
     const [rows] = await db.query(
       `
         SELECT
@@ -46,21 +48,26 @@ async function getLoans(req, res) {
         WHERE s.nim = ?
         ORDER BY l.id DESC
       `,
-      [req.params.nim]
+      [nim]
     );
 
     res.json(rows.map(toLoan));
   } catch (error) {
     console.error('GET loans error:', error);
-    res.status(500).json({ message: 'Gagal mengambil data peminjaman' });
+    res.status(500).json({
+      message: 'Gagal mengambil data peminjaman'
+    });
   }
 }
 
 async function createLoan(req, res) {
-  const { nim, bookId } = req.body || {};
+  const { bookId } = req.body || {};
+  const nim = req.user.nim;
 
-  if (!nim || !bookId) {
-    return res.status(400).json({ message: 'nim dan bookId wajib diisi' });
+  if (!bookId) {
+    return res.status(400).json({
+      message: 'bookId wajib diisi'
+    });
   }
 
   let connection;
@@ -181,7 +188,7 @@ async function createLoan(req, res) {
 
 async function returnLoan(req, res) {
   const { loanId } = req.params;
-  const { nim } = req.body || {};
+  const nim = req.user.nim;
 
   if (!nim) {
     return res.status(400).json({ message: 'nim wajib diisi' });
