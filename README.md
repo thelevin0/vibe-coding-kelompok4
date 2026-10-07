@@ -14,11 +14,19 @@ vibe-coding-kelompok4/
 1. **Nyalakan MySQL/MariaDB** (XAMPP: start *MySQL*).
 2. **Import database** `perpustakaan.sql` (phpMyAdmin → Import, atau `mysql -u root < perpustakaan.sql`).
    File ini sudah membuat database `perpustakaan` sendiri.
-3. **(Opsional) atur koneksi DB.** Default: host `localhost`, user `root`, password kosong, port `3306`.
-   Kalau berbeda, salin `.env.example` jadi `.env` lalu ubah isinya.
-4. **Jalankan backend:**
+3. **Atur koneksi DB & JWT.** Salin `.env.example` jadi `.env`:
    ```bash
    cd backend
+   cp .env.example .env
+   ```
+   Isi `.env` (default: host `localhost`, user `root`, password kosong, port `3306`):
+   ```env
+   JWT_SECRET=rahasia_kelompok4_super_aman
+   JWT_EXPIRES=1d
+   PORT=3000
+   ```
+4. **Jalankan backend:**
+   ```bash
    npm install
    npm start
    ```
@@ -36,17 +44,24 @@ vibe-coding-kelompok4/
 ## Endpoint
 
 ```text
-POST /api/login
+POST /api/login                              -> dapat token JWT
 GET  /api/books?search=&filter=semua|tersedia|tidak-tersedia
 GET  /api/books/:id
-GET  /api/loans/:nim              riwayat peminjaman (aktif + sudah dikembalikan)
-POST /api/loans                   body: { nim, bookId }
-POST /api/loans/:loanId/return    body: { nim }  (hanya pemilik pinjaman)
+GET  /api/loans                              -> riwayat peminjaman user yang login
+POST /api/loans                              -> body: { bookId }
+POST /api/loans/:loanId/return               -> hanya pemilik pinjaman
+```
+
+**Semua endpoint kecuali `/api/login` wajib menyertakan header:**
+```text
+Authorization: Bearer <token>
 ```
 
 Aturan: maksimal 3 buku aktif per mahasiswa, lama pinjam 7 hari, satu judul tidak bisa dipinjam dua kali bersamaan.
 
 ## Troubleshooting
 
+- **"JWT_SECRET belum diset di file .env"** → buat file `.env` di folder `backend/`, isi `JWT_SECRET`.
 - **"Tidak dapat terhubung ke server backend"** → backend belum jalan (`npm start`) atau port 3000 dipakai aplikasi lain.
 - **Login selalu gagal / "Terjadi kesalahan pada server"** → MySQL belum menyala, database belum di-import, atau user/password DB berbeda (atur di `.env`).
+- **Error 401 di web/Postman** → token kadaluarsa atau belum login. Login ulang untuk dapat token baru.
