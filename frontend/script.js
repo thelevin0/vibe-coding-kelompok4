@@ -1,8 +1,6 @@
 /* =========================================================
    KONSTANTA & KONFIGURASI MICROSERVICE
    ========================================================= */
-// Jika halaman dibuka lewat server backend (http://localhost:3000) pakai path relatif,
-// jika dibuka lewat file:// atau Live Server tetap menunjuk ke backend di port 3000.
 const API = window.location.port === '3000'
   ? '/api'
   : 'http://localhost:3000/api';
@@ -24,22 +22,14 @@ let currentDetailBookTitle = null;
    ========================================================= */
 function getSession() { return JSON.parse(localStorage.getItem(STORAGE_KEYS.SESSION)); }
 function saveSession(session, token) {
-  localStorage.setItem(
-    STORAGE_KEYS.SESSION,
-    JSON.stringify(session)
-  );
-
-  localStorage.setItem(
-    STORAGE_KEYS.TOKEN,
-    token
-  );
+  localStorage.setItem(STORAGE_KEYS.SESSION, JSON.stringify(session));
+  localStorage.setItem(STORAGE_KEYS.TOKEN, token);
 }
 function getToken() {
   return localStorage.getItem(STORAGE_KEYS.TOKEN);
 }
 function authHeaders(extraHeaders = {}) {
   const token = getToken();
-
   return {
     ...extraHeaders,
     ...(token ? { Authorization: `Bearer ${token}` } : {})
@@ -64,15 +54,11 @@ function showNotif(message, type) {
 
 function formatDate(value) {
   if (!value) return "-";
-
-  // Format 'YYYY-MM-DD' dibaca manual agar tanggal tidak bergeser karena timezone
   const match = String(value).match(/^(\d{4})-(\d{2})-(\d{2})/);
   const date = match
     ? new Date(Number(match[1]), Number(match[2]) - 1, Number(match[3]))
     : new Date(value);
-
   if (isNaN(date.getTime())) return "-";
-
   const options = { day: "2-digit", month: "long", year: "numeric" };
   return date.toLocaleDateString("id-ID", options);
 }
@@ -82,39 +68,26 @@ function formatDate(value) {
    ========================================================= */
 async function handleLogin(event) {
   event.preventDefault();
-
   const nim = document.getElementById("input-nim").value.trim();
   const password = document.getElementById("input-password").value;
 
   try {
     const response = await fetch(`${AUTH_API}/login`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        nim: nim,
-        password: password
-      })
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ nim: nim, password: password })
     });
-
     const data = await response.json();
-
     if (!response.ok) {
       showNotif(data.message || "NIM atau kata sandi salah.", "error");
       return;
     }
-
     saveSession(data.user, data.token);
     showNotif(data.message || "Login berhasil.", "success");
     enterApp();
-
   } catch (error) {
     console.error("Auth Service Error:", error);
-    showNotif(
-      "Tidak dapat terhubung ke server backend (port 3000).",
-      "error"
-    );
+    showNotif("Tidak dapat terhubung ke server backend (port 3000).", "error");
   }
 }
 
@@ -176,25 +149,19 @@ function goToDetailSection(bookId) {
 }
 
 /* =========================================================
-   INTEGRASI MICROSERVICE: DAFTAR & DETAIL BUKU
+   DAFTAR & DETAIL BUKU
    ========================================================= */
 async function renderBookList() {
   const keyword = document.getElementById("input-search").value.trim().toLowerCase();
   const filterValue = document.getElementById("select-filter").value;
 
   try {
-    // Memanggil Book Service
-const response = await fetch(
-  `${BOOK_API}?search=${encodeURIComponent(keyword)}&filter=${encodeURIComponent(filterValue)}`,
-  {
-    headers: authHeaders()
-  }
-);
+    const response = await fetch(
+      `${BOOK_API}?search=${encodeURIComponent(keyword)}&filter=${encodeURIComponent(filterValue)}`,
+      { headers: authHeaders() }
+    );
     const books = await response.json();
-
-    if (!response.ok) {
-      throw new Error(books.message || "Gagal mengambil data buku");
-    }
+    if (!response.ok) throw new Error(books.message || "Gagal mengambil data buku");
 
     const listContainer = document.getElementById("book-list");
     const emptyMsg = document.getElementById("book-empty");
@@ -230,14 +197,12 @@ const response = await fetch(
 
 async function renderDetail(bookId) {
   try {
- const response = await fetch(`${BOOK_API}/${bookId}`, {
-  headers: authHeaders()
-});
+    const response = await fetch(`${BOOK_API}/${bookId}`, { headers: authHeaders() });
     if (!response.ok) throw new Error("Buku tidak ditemukan");
 
     const book = await response.json();
     const isAvailable = book.stok > 0;
-    currentDetailBookTitle = book.judul; // Simpan judul untuk peminjaman
+    currentDetailBookTitle = book.judul;
 
     document.getElementById("detail-judul").textContent = book.judul;
     document.getElementById("detail-penulis").textContent = book.penulis;
@@ -259,33 +224,27 @@ async function renderDetail(bookId) {
 }
 
 /* =========================================================
-   INTEGRASI MICROSERVICE: PEMINJAMAN & PENGEMBALIAN
+   PEMINJAMAN & PENGEMBALIAN
    ========================================================= */
 async function handleBorrow() {
   const session = getSession();
   if (!session || !currentDetailBookId) return;
 
   try {
-    // Memanggil Loan Service
-  const response = await fetch(LOAN_API, {
-  method: 'POST',
-  headers: authHeaders({
-    'Content-Type': 'application/json'
-  }),
-  body: JSON.stringify({
-    nim: session.nim,
-    bookId: currentDetailBookId,
-    judul: currentDetailBookTitle
-  })
-});
-
+    const response = await fetch(LOAN_API, {
+      method: 'POST',
+      headers: authHeaders({ 'Content-Type': 'application/json' }),
+      body: JSON.stringify({
+        nim: session.nim,
+        bookId: currentDetailBookId,
+        judul: currentDetailBookTitle
+      })
+    });
     const data = await response.json();
-
     if (!response.ok) {
       showNotif(data.message || "Gagal meminjam buku.", "error");
       return;
     }
-
     showNotif(data.message, "success");
     goToLoansSection();
   } catch (error) {
@@ -298,21 +257,16 @@ async function renderLoans() {
   if (!session) return;
 
   try {
-    // Memanggil Loan Service
-    const response = await fetch(`${LOAN_API}/${encodeURIComponent(session.nim)}`);
+    const response = await fetch(LOAN_API, { headers: authHeaders() });
     const allLoans = await response.json();
 
-    if (!response.ok) {
-      throw new Error(allLoans.message || "Gagal mengambil data peminjaman");
-    }
+    if (!response.ok) throw new Error(allLoans.message || "Gagal mengambil data peminjaman");
 
-    // API mengembalikan seluruh riwayat; kuota hanya dihitung dari yang masih dipinjam
     const activeCount = allLoans.filter((loan) => loan.status === "borrowed").length;
     const remainingQuota = Math.max(0, MAX_ACTIVE_LOANS - activeCount);
     document.getElementById("quota-info").textContent =
       `Sisa kuota peminjaman: ${remainingQuota} dari ${MAX_ACTIVE_LOANS} buku.`;
 
-    // Pinjaman aktif di atas, riwayat yang sudah dikembalikan di bawah
     const myLoans = [
       ...allLoans.filter((loan) => loan.status === "borrowed"),
       ...allLoans.filter((loan) => loan.status !== "borrowed")
@@ -358,20 +312,16 @@ async function handleReturn(loanId) {
   if (!session) return;
 
   try {
-    // Memanggil Loan Service
     const response = await fetch(`${LOAN_API}/${loanId}/return`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: authHeaders({ 'Content-Type': 'application/json' }),
       body: JSON.stringify({ nim: session.nim })
     });
-
     const data = await response.json();
-
     if (!response.ok) {
       showNotif(data.message || "Gagal mengembalikan buku.", "error");
       return;
     }
-
     showNotif(data.message, "success");
     renderLoans();
   } catch (error) {
