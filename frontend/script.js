@@ -10,7 +10,10 @@ const AUTH_API = API;
 const BOOK_API = `${API}/books`;
 const LOAN_API = `${API}/loans`;
 
-const STORAGE_KEYS = { SESSION: "lib_session" };
+const STORAGE_KEYS = {
+  SESSION: "lib_session",
+  TOKEN: "lib_token"
+};
 const MAX_ACTIVE_LOANS = 3;
 
 let currentDetailBookId = null;
@@ -20,8 +23,32 @@ let currentDetailBookTitle = null;
    UTIL: LOCALSTORAGE HELPERS (Hanya untuk Sesi Login)
    ========================================================= */
 function getSession() { return JSON.parse(localStorage.getItem(STORAGE_KEYS.SESSION)); }
-function saveSession(session) { localStorage.setItem(STORAGE_KEYS.SESSION, JSON.stringify(session)); }
-function clearSession() { localStorage.removeItem(STORAGE_KEYS.SESSION); }
+function saveSession(session, token) {
+  localStorage.setItem(
+    STORAGE_KEYS.SESSION,
+    JSON.stringify(session)
+  );
+
+  localStorage.setItem(
+    STORAGE_KEYS.TOKEN,
+    token
+  );
+}
+function getToken() {
+  return localStorage.getItem(STORAGE_KEYS.TOKEN);
+}
+function authHeaders(extraHeaders = {}) {
+  const token = getToken();
+
+  return {
+    ...extraHeaders,
+    ...(token ? { Authorization: `Bearer ${token}` } : {})
+  };
+}
+function clearSession() {
+  localStorage.removeItem(STORAGE_KEYS.SESSION);
+  localStorage.removeItem(STORAGE_KEYS.TOKEN);
+}
 
 /* =========================================================
    NOTIFIKASI & FORMAT TANGGAL
@@ -78,7 +105,7 @@ async function handleLogin(event) {
       return;
     }
 
-    saveSession(data.user);
+    saveSession(data.user, data.token);
     showNotif(data.message || "Login berhasil.", "success");
     enterApp();
 
@@ -157,9 +184,12 @@ async function renderBookList() {
 
   try {
     // Memanggil Book Service
-    const response = await fetch(
-      `${BOOK_API}?search=${encodeURIComponent(keyword)}&filter=${encodeURIComponent(filterValue)}`
-    );
+const response = await fetch(
+  `${BOOK_API}?search=${encodeURIComponent(keyword)}&filter=${encodeURIComponent(filterValue)}`,
+  {
+    headers: authHeaders()
+  }
+);
     const books = await response.json();
 
     if (!response.ok) {
@@ -200,7 +230,9 @@ async function renderBookList() {
 
 async function renderDetail(bookId) {
   try {
-    const response = await fetch(`${BOOK_API}/${bookId}`);
+ const response = await fetch(`${BOOK_API}/${bookId}`, {
+  headers: authHeaders()
+});
     if (!response.ok) throw new Error("Buku tidak ditemukan");
 
     const book = await response.json();
@@ -235,15 +267,17 @@ async function handleBorrow() {
 
   try {
     // Memanggil Loan Service
-    const response = await fetch(LOAN_API, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        nim: session.nim,
-        bookId: currentDetailBookId,
-        judul: currentDetailBookTitle
-      })
-    });
+  const response = await fetch(LOAN_API, {
+  method: 'POST',
+  headers: authHeaders({
+    'Content-Type': 'application/json'
+  }),
+  body: JSON.stringify({
+    nim: session.nim,
+    bookId: currentDetailBookId,
+    judul: currentDetailBookTitle
+  })
+});
 
     const data = await response.json();
 
