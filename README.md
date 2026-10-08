@@ -19,12 +19,18 @@ vibe-coding-kelompok4/
    cd backend
    cp .env.example .env
    ```
-   Isi `.env` (default: host `localhost`, user `root`, password kosong, port `3306`):
+   Buka `.env` dan isi `JWT_SECRET` dengan string rahasia kamu sendiri. Contoh isi `.env`:
    ```env
-   JWT_SECRET=rahasia_kelompok4_super_aman
+   DB_HOST=localhost
+   DB_USER=root
+   DB_PASSWORD=
+   DB_NAME=perpustakaan
+   DB_PORT=3306
+   JWT_SECRET=ganti_dengan_secret_kamu
    JWT_EXPIRES=1d
    PORT=3000
    ```
+   > ⚠️ `JWT_SECRET` **wajib diisi** — kalau kosong, server akan gagal start.
 4. **Jalankan backend:**
    ```bash
    npm install
