@@ -14,11 +14,13 @@ vibe-coding-kelompok4/
 1. **Nyalakan MySQL/MariaDB** (XAMPP: start *MySQL*).
 2. **Import database** `perpustakaan.sql` (phpMyAdmin → Import, atau `mysql -u root < perpustakaan.sql`).
    File ini sudah membuat database `perpustakaan` sendiri.
-3. **Atur koneksi DB & JWT.** Salin `.env.example` jadi `.env`:
+3. **Atur koneksi DB & JWT.** Salin `.env.example` jadi `.env` di folder `backend/`:
    ```bash
    cd backend
-   cp .env.example .env
+   cp ../.env.example .env
    ```
+   > ⚠️ File `.env` **wajib ada di folder `backend/`** (sejajar dengan `server.js`). Kalau ditaruh di root, server tidak akan membacanya.
+   
    Buka `.env` dan isi `JWT_SECRET` dengan string rahasia kamu sendiri. Contoh isi `.env`:
    ```env
    DB_HOST=localhost
