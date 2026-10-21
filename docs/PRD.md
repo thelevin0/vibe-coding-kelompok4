@@ -1,297 +1,325 @@
+# DOKUMENTASI PENGGUNAAN AI
+## Proyek Sistem Peminjaman Buku Perpustakaan — Vibe Coding Kelompok 4
 
-Dokumentasi Penggunaan AI
-Proyek Sistem Peminjaman Buku Perpustakaan — Vibe Coding Kelompok 4
-1. Identitas Proyek
-Komponen | Keterangan
+## 1. Identitas Proyek
 
-Nama proyek: Sistem Peminjaman Buku Perpustakaan
+| Komponen | Keterangan |
+|---|---|
+| Nama Proyek | Sistem Peminjaman Buku Perpustakaan |
+| Repositori | https://github.com/thelevin0/vibe-coding-kelompok4.git |
+| Backend | Node.js dan Express.js |
+| Basis Data | MySQL |
+| Komunikasi API | HTTP/JSON |
+| Library Database | mysql2/promise |
+| Alat Pengujian API | Postman |
+| AI yang Digunakan | Claude, ChatGPT, Gemini, dan DeepSeek |
+| Mata Kuliah | Vibe Coding |
+| Tujuan Dokumentasi | Mencatat peran AI, prompt kerja, proses review, verifikasi, dan batasan penggunaan AI. |
 
-Repositori: https://github.com/thelevin0/vibe-coding-kelompok4.git
+### 1.1 Anggota Kelompok
 
-Backend: Node.js dan Express.js
+| No. | Nama Anggota | NIM |
+|---|---|---|
+| 1 | Muhammad Raihan | 2441919013 |
+| 2 | Alya Roihanatul Jannah | 2441919018 |
+| 3 | Siti Fathimah Az Zahra | 2441919024 |
+| 4 | Muhammad Indrawan Ismail | 2441919028 |
+| 5 | Muhammad Arsyad Roihan Maulaya | 2441919045 |
 
-Basis data: MySQL
+## 2. Tujuan Penggunaan AI
 
-Komunikasi API: HTTP/JSON
+Claude, ChatGPT, Gemini, dan DeepSeek digunakan sebagai alat bantu dalam pengembangan Sistem Peminjaman Buku Perpustakaan. AI membantu proses memahami kebutuhan sistem, menyusun struktur basis data, mengembangkan endpoint API, meninjau kode, serta menyusun dokumentasi dan skenario pengujian.
 
-Library database: mysql2/promise
+Claude digunakan untuk membantu penyusunan dan penyesuaian struktur basis data, sedangkan ChatGPT membantu pengembangan dan peninjauan endpoint API. Gemini dan DeepSeek juga digunakan sesuai kebutuhan pengerjaan berdasarkan aktivitas yang benar-benar dilakukan.
 
-Alat pengujian API: Postman
+AI tidak menggantikan keputusan anggota kelompok. Setiap saran terkait kode, endpoint, autentikasi, struktur tabel, aturan peminjaman, dan hasil pengujian harus diperiksa terhadap implementasi proyek. Pengujian API dilakukan menggunakan Postman untuk memastikan kesesuaian hasil dengan kebutuhan sistem.
 
-AI yang digunakan dalam alur kerja: Claude, ChatGPT, Gemini, dan DeepSeek
+## 3. Pembagian Peran AI
 
-Mata kuliah: Vibe Coding
+| Alat | Peran dalam Alur Kerja |
+|---|---|
+| Claude | Membantu penyusunan dan penyesuaian struktur basis data, relasi tabel, serta aturan peminjaman buku. |
+| ChatGPT | Membantu pengembangan endpoint API, peninjauan kode, penyusunan dokumentasi, dan skenario pengujian. |
+| Gemini | Digunakan sebagai AI assistant sesuai aktivitas pengerjaan yang sebenarnya. |
+| DeepSeek | Digunakan sebagai AI assistant sesuai kebutuhan pengerjaan yang sebenarnya. |
+| Anggota Kelompok | Menentukan kebutuhan sistem, memeriksa kode, menjalankan pengujian, mengambil keputusan teknis, dan memastikan dokumentasi sesuai implementasi. |
 
-Tujuan dokumentasi: Mencatat peran AI, prompt kerja, proses review, verifikasi, serta batasan penggunaan AI dalam pengembangan Sistem Peminjaman Buku.
+Catatan: Aktivitas spesifik Gemini dan DeepSeek perlu disesuaikan dengan riwayat penggunaan yang sebenarnya. Hasil AI tidak langsung dianggap benar sebelum diperiksa oleh anggota kelompok.
 
-Anggota kelompok:
-1. Muhammad Raihan — 2441919013
-2. Alya Roihanatul Jannah — 2441919018
-3. Siti Fathimah Az Zahra — 2441919024
-4. Muhammad Indrawan Ismail — 2441919028
-5. Muhammad Arsyad Roihan Maulaya — 2441919045
-2. Tujuan Penggunaan AI
-Claude, ChatGPT, Gemini, dan DeepSeek digunakan sebagai alat bantu dalam proses pengembangan Sistem Peminjaman Buku Perpustakaan. Penggunaan AI bertujuan membantu memahami kebutuhan sistem, menyesuaikan struktur basis data, mengembangkan dan meninjau endpoint API, serta menyusun dokumentasi dan skenario pengujian.
+## 4. Prinsip Penggunaan AI
 
-Dalam PRD, Claude digunakan untuk membantu pekerjaan penyusunan dan penyesuaian struktur basis data berdasarkan kebutuhan sistem dan aturan peminjaman. ChatGPT digunakan untuk membantu pengembangan dan penyesuaian endpoint API agar sesuai dengan kebutuhan sistem. Gemini dan DeepSeek juga tercantum sebagai AI assistant yang digunakan secara bergantian sesuai tugas.
+### 4.1 Berbasis Kebutuhan Proyek
 
-AI tidak menggantikan keputusan anggota kelompok. Setiap saran yang berkaitan dengan kode, endpoint, autentikasi, struktur tabel, aturan peminjaman, dan hasil pengujian tetap harus diperiksa terhadap implementasi proyek. Pengujian dilakukan menggunakan Postman untuk memastikan bahwa API memberikan hasil sesuai kebutuhan sistem.
-3. Pembagian Peran AI
-Alat | Peran dalam alur kerja
+Saran AI harus sesuai dengan kebutuhan sistem, seperti login mahasiswa, katalog buku, peminjaman, riwayat peminjaman, dan pengembalian buku.
 
-Claude | Membantu penyusunan dan penyesuaian struktur basis data berdasarkan kebutuhan sistem, relasi tabel, serta aturan peminjaman buku.
+### 4.2 Tidak Mengarang Hasil
 
-ChatGPT | Membantu pengembangan dan penyesuaian endpoint API, meninjau kesesuaian endpoint dengan kebutuhan sistem, serta membantu penyusunan dokumentasi dan skenario pengujian.
+AI tidak boleh menjadi dasar untuk menyatakan endpoint tersedia, pengujian berhasil, atau masalah telah diperbaiki tanpa bukti aktual.
 
-Gemini | Tercantum sebagai AI assistant yang digunakan dalam alur pengerjaan. Aktivitas spesifiknya disesuaikan dengan riwayat penggunaan yang sebenarnya.
+### 4.3 Review Sebelum Perubahan
 
-DeepSeek | Tercantum sebagai AI assistant yang digunakan secara bergantian sesuai kebutuhan pengerjaan. Aktivitas spesifiknya disesuaikan dengan riwayat penggunaan yang sebenarnya.
+Kode dan saran AI harus diperiksa sebelum diterapkan. Anggota kelompok perlu memahami tujuan perubahan dan dampaknya terhadap sistem.
 
-Anggota kelompok | Menentukan kebutuhan sistem, memeriksa kode yang dihasilkan atau disarankan AI, menjalankan aplikasi dan pengujian, memutuskan perubahan yang diterapkan, serta memastikan dokumentasi sesuai dengan implementasi.
+### 4.4 Validasi Manual
 
-Catatan akurasi: Pembagian peran ini mengacu pada informasi yang tercantum dalam PRD. Aktivitas Gemini dan DeepSeek perlu dijelaskan lebih spesifik apabila tersedia riwayat percakapan atau bukti penggunaan. Hasil yang diberikan AI tidak langsung dianggap benar sebelum diperiksa oleh anggota kelompok.
-4. Prinsip Penggunaan AI
-Berbasis kebutuhan proyek. Saran AI harus sesuai dengan kebutuhan Sistem Peminjaman Buku yang tercantum dalam PRD, seperti login mahasiswa, katalog buku, peminjaman, riwayat peminjaman, dan pengembalian buku.
+Anggota kelompok menjalankan aplikasi dan menguji endpoint menggunakan Postman atau metode lain yang sesuai. Hasil aktual dicatat berdasarkan pengujian yang benar-benar dilakukan.
 
-Tidak mengarang hasil. AI tidak boleh menyatakan suatu endpoint tersedia, pengujian berhasil, atau masalah telah diperbaiki tanpa bukti dari kode dan hasil pengujian.
+### 4.5 Kesesuaian Aturan Bisnis
 
-Review sebelum perubahan. Kode atau saran yang dihasilkan AI harus diperiksa sebelum diterapkan ke dalam proyek.
+Aturan bisnis yang harus diperiksa meliputi:
 
-Validasi manual. Anggota kelompok menjalankan aplikasi dan menguji endpoint menggunakan Postman untuk memeriksa hasil aktual.
-
-Kesesuaian aturan bisnis. Implementasi harus diperiksa berdasarkan aturan peminjaman, yaitu maksimal tiga buku aktif per mahasiswa, buku yang stoknya habis tidak dapat dipinjam, serta tanggal jatuh tempo tujuh hari setelah tanggal peminjaman.
-
-Keamanan informasi. Password, token JWT, API key, kredensial database, isi file .env, dan data pribadi tidak boleh dimasukkan ke prompt AI.
-
-Pencatatan keputusan. Saran AI yang diterima, diubah, atau ditolak perlu disesuaikan dengan keputusan anggota kelompok dan bukti pemeriksaan yang tersedia.
-5. Alur Kerja Penggunaan AI
-Alur kerja penggunaan AI dalam pengembangan Sistem Peminjaman Buku adalah sebagai berikut:
-1. Menentukan kebutuhan dan ruang lingkup sistem berdasarkan PRD.
-2. Meminta bantuan AI untuk memahami kebutuhan sistem dan menyusun solusi teknis awal.
-3. Menggunakan bantuan Claude untuk menyusun atau menyesuaikan struktur basis data sesuai kebutuhan sistem.
-4. Menggunakan bantuan ChatGPT untuk mengembangkan atau meninjau endpoint API.
-5. Memeriksa kesesuaian kode, autentikasi JWT, metode HTTP, request, response, dan validasi dengan kebutuhan proyek.
-6. Memastikan aturan peminjaman dan pengembalian diterapkan sesuai kebutuhan sistem.
-7. Menyusun skenario pengujian berdasarkan fitur dan endpoint yang tersedia.
-8. Menjalankan pengujian API menggunakan Postman dan mencatat hasil yang diperoleh.
-9. Membandingkan implementasi dengan PRD, dokumentasi API, struktur basis data, dan hasil pengujian.
-10. Memperbaiki bagian yang tidak sesuai dan melakukan pemeriksaan akhir sebelum perubahan disimpan ke repository GitHub.
-Alur tersebut menggambarkan proses pengembangan dan pemeriksaan yang didokumentasikan dalam proyek. Penggunaan AI tidak menghilangkan kewajiban anggota kelompok untuk memahami, memeriksa, dan menguji kode yang digunakan.
-6. Kumpulan Prompt Kerja
-Prompt berikut disusun berdasarkan kebutuhan dan aktivitas yang dijelaskan dalam PRD proyek Sistem Peminjaman Buku Kelompok 4. Prompt ini dapat digunakan sebagai dokumentasi pola kerja AI. Jika diperlukan bukti bahwa prompt tertentu benar-benar pernah digunakan, lampirkan riwayat percakapan atau tangkapan layar yang sesuai.
-6.1 Prompt untuk Claude — Membuat dan Menyesuaikan Struktur Database
-Saya sedang mengembangkan Sistem Peminjaman Buku Perpustakaan menggunakan Node.js, Express.js, dan MySQL. Bantu saya menyusun dan meninjau struktur database berdasarkan kebutuhan sistem yang saya berikan.
-
-Sistem memiliki data mahasiswa, buku, dan transaksi peminjaman. Struktur database perlu mendukung proses login mahasiswa, menampilkan katalog buku, meminjam buku, melihat transaksi peminjaman, dan mengembalikan buku.
-
-Aturan bisnis yang perlu diperhatikan:
-1. Mahasiswa hanya dapat memiliki maksimal tiga buku yang sedang dipinjam.
+1. Mahasiswa hanya dapat memiliki maksimal tiga buku yang masih dipinjam secara aktif.
 2. Buku yang stoknya habis tidak dapat dipinjam.
 3. Tanggal jatuh tempo adalah tujuh hari setelah tanggal peminjaman.
-4. Transaksi peminjaman harus terhubung dengan mahasiswa dan buku yang sesuai.
-5. Status peminjaman harus dapat membedakan buku yang masih dipinjam dan yang sudah dikembalikan.
+4. Status transaksi membedakan buku yang masih dipinjam dan yang sudah dikembalikan.
+5. Stok buku diperbarui sesuai proses peminjaman dan pengembalian.
+
+### 4.6 Keamanan Informasi
+
+Password, token JWT, API key, kredensial database, isi file `.env`, dan data pribadi tidak boleh dimasukkan ke prompt AI tanpa perlindungan yang sesuai.
+
+### 4.7 Pencatatan Keputusan
+
+Saran AI yang diterima, diubah, atau ditolak perlu dicatat berdasarkan keputusan anggota kelompok dan bukti pemeriksaan.
+
+## 5. Alur Kerja Penggunaan AI
+
+1. Menentukan kebutuhan sistem berdasarkan dokumen kebutuhan proyek.
+2. Meminta bantuan AI untuk memahami kebutuhan dan menyusun solusi teknis awal.
+3. Menggunakan Claude untuk membantu penyusunan atau penyesuaian struktur basis data.
+4. Menggunakan ChatGPT untuk membantu pengembangan atau peninjauan endpoint API.
+5. Memeriksa kode, autentikasi JWT, metode HTTP, request, response, dan validasi.
+6. Memeriksa penerapan aturan peminjaman dan pengembalian.
+7. Menyusun skenario pengujian berdasarkan endpoint yang tersedia.
+8. Menjalankan pengujian API menggunakan Postman.
+9. Membandingkan implementasi dengan dokumentasi API, struktur basis data, dan hasil pengujian.
+10. Memperbaiki bagian yang tidak sesuai dan melakukan pemeriksaan sebelum perubahan disimpan ke repositori GitHub.
+
+Penggunaan AI tidak menghilangkan tanggung jawab anggota kelompok untuk memahami, memeriksa, dan menguji kode.
+
+## 6. Kumpulan Prompt Kerja
+
+Prompt berikut disusun sebagai dokumentasi pola kerja AI berdasarkan kebutuhan proyek. Jika diperlukan bukti bahwa prompt benar-benar pernah digunakan, lampirkan riwayat percakapan atau tangkapan layar yang sesuai.
+
+### 6.1 Prompt untuk Claude — Struktur Database
+
+Saya sedang mengembangkan Sistem Peminjaman Buku Perpustakaan menggunakan Node.js, Express.js, dan MySQL. Bantu saya menyusun dan meninjau struktur database berdasarkan kebutuhan sistem yang saya berikan.
+
+Sistem memiliki data mahasiswa, buku, dan transaksi peminjaman. Database perlu mendukung login mahasiswa, katalog buku, peminjaman, riwayat transaksi, dan pengembalian buku.
+
+Aturan bisnis:
+1. Mahasiswa maksimal memiliki tiga buku yang sedang dipinjam.
+2. Buku yang stoknya habis tidak dapat dipinjam.
+3. Tanggal jatuh tempo adalah tujuh hari setelah peminjaman.
+4. Transaksi harus terhubung dengan mahasiswa dan buku yang sesuai.
+5. Status transaksi membedakan buku yang masih dipinjam dan yang sudah dikembalikan.
+
 Tugas:
 1. Jelaskan struktur tabel yang diperlukan.
-2. Tentukan primary key dan foreign key yang sesuai.
+2. Tentukan primary key dan foreign key.
 3. Jelaskan hubungan antartabel.
-4. Periksa apakah struktur yang disarankan mendukung aturan bisnis.
-5. Hindari menambahkan kolom atau relasi yang tidak dibutuhkan.
-6. Jelaskan bagian yang masih harus diperiksa terhadap database aktual.
-Jangan menyatakan struktur database sudah benar sebelum dibandingkan dengan implementasi proyek.
-6.2 Prompt untuk ChatGPT — Mengembangkan dan Meninjau Endpoint API
-Saya sedang mengembangkan Sistem Peminjaman Buku Perpustakaan berbasis Node.js, Express.js, dan MySQL. Bantu saya mengembangkan atau meninjau endpoint API berdasarkan kebutuhan sistem dan kode yang saya berikan.
+4. Periksa kesesuaian struktur dengan aturan bisnis.
+5. Hindari kolom atau relasi yang tidak diperlukan.
+6. Jelaskan bagian yang harus diperiksa terhadap database aktual.
 
-Fitur utama sistem meliputi login mahasiswa, daftar buku, detail buku, peminjaman buku, daftar transaksi peminjaman, dan pengembalian buku.
+Jangan menyatakan struktur database sudah benar sebelum dibandingkan dengan implementasi proyek.
+
+### 6.2 Prompt untuk ChatGPT — Endpoint API
+
+Saya sedang mengembangkan Sistem Peminjaman Buku Perpustakaan menggunakan Node.js, Express.js, dan MySQL. Bantu saya mengembangkan atau meninjau endpoint API berdasarkan kebutuhan sistem dan kode yang saya berikan.
+
+Fitur sistem meliputi login mahasiswa, daftar buku, detail buku, peminjaman, daftar transaksi, dan pengembalian buku.
 
 Tugas:
-1. Periksa endpoint dan metode HTTP yang digunakan.
-2. Periksa request dan response setiap endpoint.
-3. Periksa autentikasi JWT pada endpoint yang memerlukan login.
-4. Periksa validasi data yang dikirimkan pengguna.
-5. Pastikan mahasiswa hanya dapat mengakses transaksi peminjamannya sendiri.
-6. Periksa aturan maksimal tiga buku aktif.
-7. Periksa penolakan peminjaman ketika stok buku habis.
-8. Periksa perhitungan tanggal jatuh tempo tujuh hari setelah peminjaman.
-9. Periksa perubahan status transaksi dan stok ketika buku dikembalikan.
-10. Jelaskan file yang perlu diperiksa atau diubah beserta alasannya.
-Berikan rekomendasi berdasarkan kode yang saya berikan. Jangan mengarang endpoint dan jangan menyatakan solusi berhasil sebelum diuji melalui aplikasi atau Postman.
-6.3 Prompt untuk AI — Membantu Pemecahan Masalah Kode
+1. Periksa endpoint dan metode HTTP.
+2. Periksa request dan response.
+3. Periksa autentikasi JWT.
+4. Periksa validasi data pengguna.
+5. Pastikan mahasiswa hanya dapat mengakses transaksi miliknya.
+6. Periksa batas maksimal tiga buku aktif.
+7. Periksa penolakan peminjaman ketika stok habis.
+8. Periksa perhitungan jatuh tempo tujuh hari.
+9. Periksa perubahan status dan stok ketika pengembalian.
+10. Jelaskan file yang perlu diperiksa atau diubah.
+
+Berikan rekomendasi berdasarkan kode yang saya berikan. Jangan mengarang endpoint dan jangan menyatakan solusi berhasil sebelum diuji.
+
+### 6.3 Prompt untuk AI — Pemecahan Masalah Kode
+
 Saya sedang mengembangkan Sistem Peminjaman Buku menggunakan Node.js, Express.js, dan MySQL. Saya akan memberikan kode, pesan error, atau hasil request yang bermasalah.
 
-Bantu saya mencari penyebab masalah dengan langkah berikut:
-1. Jelaskan kemungkinan penyebab error berdasarkan bukti yang diberikan.
-2. Periksa hubungan antara route, controller, koneksi database, dan query SQL.
-3. Tunjukkan bagian kode yang bermasalah.
-4. Berikan perbaikan yang sesuai dengan struktur proyek.
-5. Hindari mengubah bagian kode yang tidak berkaitan dengan masalah.
-6. Jelaskan cara menerapkan perubahan.
-7. Berikan langkah untuk menguji apakah masalah sudah teratasi.
-Jangan mengklaim masalah sudah diperbaiki sebelum saya menjalankan kode dan memeriksa hasilnya. Jika informasi belum cukup, jelaskan informasi tambahan yang diperlukan.
-6.4 Prompt untuk ChatGPT — Menyusun Skenario Pengujian Postman
-Saya sedang menguji API pada Sistem Peminjaman Buku Perpustakaan. Bantu saya menyusun skenario pengujian berdasarkan endpoint yang benar-benar tersedia pada proyek.
+Bantu saya:
+1. Menjelaskan kemungkinan penyebab error berdasarkan bukti.
+2. Memeriksa hubungan route, controller, koneksi database, dan query SQL.
+3. Menunjukkan bagian kode yang bermasalah.
+4. Memberikan perbaikan yang sesuai dengan struktur proyek.
+5. Menghindari perubahan yang tidak berkaitan.
+6. Menjelaskan cara menerapkan perubahan.
+7. Memberikan langkah pengujian setelah perbaikan.
 
-Fitur yang perlu diperiksa meliputi:
-1. Login dengan kredensial yang benar.
-2. Login dengan kredensial yang salah.
+Jangan mengklaim masalah telah diperbaiki sebelum saya menjalankan kode dan memeriksa hasilnya. Jika informasi belum cukup, jelaskan informasi tambahan yang diperlukan.
+
+### 6.4 Prompt untuk ChatGPT — Pengujian Postman
+
+Saya sedang menguji API Sistem Peminjaman Buku Perpustakaan. Bantu saya menyusun skenario pengujian berdasarkan endpoint yang benar-benar tersedia.
+
+Skenario yang perlu diperiksa:
+1. Login dengan kredensial valid.
+2. Login dengan kredensial salah.
 3. Melihat daftar buku.
 4. Melihat detail buku.
-5. Mengakses endpoint yang memerlukan autentikasi tanpa token yang valid.
+5. Mengakses endpoint terlindungi tanpa token valid.
 6. Meminjam buku yang tersedia.
 7. Meminjam buku yang stoknya habis.
-8. Mencoba meminjam buku ketika sudah memiliki tiga buku aktif.
-9. Mencoba meminjam buku yang sama ketika masih memiliki pinjaman aktif, jika aturan tersebut diterapkan.
+8. Meminjam buku ketika sudah memiliki tiga buku aktif.
+9. Meminjam buku yang sama dua kali jika aturan tersebut diterapkan.
 10. Mengembalikan buku.
-11. Memeriksa perubahan status peminjaman dan stok buku.
-Untuk setiap skenario, tuliskan ID pengujian, tujuan, prasyarat, langkah pengujian, request yang diperlukan, hasil yang diharapkan, hasil aktual, status, dan bukti yang perlu disimpan.
+11. Memeriksa perubahan stok dan status transaksi.
 
-Jangan mengisi hasil aktual atau menyatakan pengujian lulus berdasarkan perkiraan. Hasil pengujian harus diisi berdasarkan respons yang benar-benar diperoleh dari Postman.
-6.5 Prompt untuk AI — Review Database dan Dokumentasi
-Bantu saya meninjau konsistensi antara PRD, struktur database, kode backend, dokumentasi API, dan hasil pengujian pada Sistem Peminjaman Buku Perpustakaan.
+Untuk setiap skenario, tuliskan ID, tujuan, prasyarat, langkah pengujian, request, hasil yang diharapkan, hasil aktual, status, dan bukti.
 
-Periksa hal-hal berikut:
-1. Kesesuaian nama tabel dan kolom.
-2. Kesesuaian primary key, foreign key, dan relasi antartabel.
-3. Kesesuaian endpoint dan metode HTTP.
-4. Kesesuaian field request dan response.
-5. Kesesuaian autentikasi dan aturan akses pengguna.
-6. Kesesuaian aturan maksimal tiga buku aktif.
-7. Kesesuaian perubahan stok dan status ketika peminjaman atau pengembalian dilakukan.
-8. Kesesuaian tanggal jatuh tempo tujuh hari setelah peminjaman.
-9. Kesesuaian dokumentasi dengan hasil pengujian yang tersedia.
-Sajikan temuan dalam tabel yang memuat bagian yang diperiksa, kondisi yang ditemukan, bukti, dampak, rekomendasi, dan status verifikasi.
+Jangan mengisi hasil aktual berdasarkan perkiraan. Hasil harus didasarkan pada respons Postman yang benar-benar diperoleh.
 
-Jangan menambahkan informasi yang tidak didukung oleh sumber. Jika suatu bagian belum dapat dipastikan, tuliskan "belum dapat diverifikasi".
-6.6 Prompt untuk ChatGPT — Pemeriksaan Konsistensi Laporan
-Bantu saya melakukan pemeriksaan akhir terhadap dokumentasi proyek Sistem Peminjaman Buku Perpustakaan Kelompok 4.
+### 6.5 Prompt untuk AI — Review Database dan Dokumentasi
 
-Gunakan PRD, dokumentasi API, struktur database, kode backend, dan bukti pengujian yang saya berikan sebagai sumber pemeriksaan.
+Bantu saya meninjau konsistensi antara dokumen kebutuhan, struktur database, kode backend, dokumentasi API, dan hasil pengujian.
 
 Periksa:
-1. Apakah fitur yang dijelaskan sesuai dengan implementasi.
-2. Apakah endpoint yang ditulis sesuai dengan route aktual.
-3. Apakah struktur database sesuai dengan kode aplikasi.
-4. Apakah aturan bisnis dijelaskan secara konsisten.
-5. Apakah hasil pengujian didukung oleh bukti yang tersedia.
-6. Apakah terdapat klaim yang belum diverifikasi.
-7. Apakah terdapat informasi rahasia dalam dokumentasi.
-8. Apakah terdapat perbedaan antara PRD dan implementasi yang perlu diperbaiki.
-Buat daftar temuan, bukti pendukung, dampak, dan rekomendasi. Bedakan informasi yang sudah terverifikasi dengan informasi yang masih perlu diperiksa. Jangan menyatakan semua bagian benar jika bukti yang tersedia belum cukup.
-6.7 Prompt untuk AI — Pemeriksaan Akhir sebelum Push ke GitHub
-Lakukan pemeriksaan akhir terhadap proyek Sistem Peminjaman Buku sebelum perubahan disimpan atau di-push ke repository GitHub.
+1. Nama tabel dan kolom.
+2. Primary key, foreign key, dan relasi tabel.
+3. Endpoint dan metode HTTP.
+4. Field request dan response.
+5. Autentikasi dan hak akses.
+6. Aturan maksimal tiga buku aktif.
+7. Perubahan stok dan status transaksi.
+8. Perhitungan jatuh tempo tujuh hari.
+9. Kesesuaian dokumentasi dengan hasil pengujian.
+
+Sajikan temuan dalam tabel berisi bagian yang diperiksa, kondisi, bukti, dampak, rekomendasi, dan status verifikasi. Jika informasi belum cukup, tuliskan "belum dapat diverifikasi".
+
+### 6.6 Prompt untuk ChatGPT — Pemeriksaan Konsistensi Laporan
+
+Bantu saya memeriksa dokumentasi proyek Sistem Peminjaman Buku Perpustakaan Kelompok 4 berdasarkan dokumen kebutuhan, dokumentasi API, database, kode backend, dan bukti pengujian.
 
 Periksa:
-1. Konsistensi nama fitur, endpoint, dan aturan bisnis.
-2. Kesesuaian dokumentasi dengan kode dan struktur database.
+1. Kesesuaian fitur dengan implementasi.
+2. Kesesuaian endpoint dengan route aktual.
+3. Kesesuaian database dengan kode aplikasi.
+4. Konsistensi aturan bisnis.
+5. Dukungan bukti terhadap hasil pengujian.
+6. Klaim yang belum diverifikasi.
+7. Informasi rahasia dalam dokumentasi.
+8. Perbedaan antara kebutuhan dan implementasi.
+
+Buat daftar temuan, bukti, dampak, dan rekomendasi. Bedakan informasi terverifikasi dengan informasi yang masih perlu diperiksa.
+
+### 6.7 Prompt untuk AI — Pemeriksaan Sebelum Push ke GitHub
+
+Lakukan pemeriksaan akhir terhadap proyek Sistem Peminjaman Buku sebelum perubahan disimpan atau di-push ke GitHub.
+
+Periksa:
+1. Konsistensi fitur, endpoint, dan aturan bisnis.
+2. Kesesuaian dokumentasi dengan kode dan database.
 3. Kesesuaian hasil pengujian dengan bukti Postman.
 4. Kelengkapan dokumentasi API dan README.
-5. Kemungkinan adanya kode yang tidak sesuai dengan kebutuhan.
-6. Kemungkinan adanya password, token, API key, atau kredensial dalam file proyek.
-7. Risiko perintah atau perubahan yang dapat menghapus atau mengubah database tanpa sengaja.
-8. Bagian yang masih perlu diperbaiki sebelum proyek diserahkan.
-Berikan daftar temuan dan rekomendasi berdasarkan tingkat risiko. Jangan menyatakan proyek bebas bug hanya berdasarkan pemeriksaan teks. Jangan mengubah file secara langsung tanpa menjelaskan perubahan yang disarankan.
-7. Checklist Review Teknis
-Checklist berikut digunakan untuk mengarahkan pemeriksaan terhadap implementasi Sistem Peminjaman Buku. Status perlu disesuaikan jika terdapat perubahan kode atau pengujian baru.
+5. Kode yang tidak sesuai kebutuhan.
+6. Password, token, API key, atau kredensial yang mungkin tersimpan.
+7. Perintah yang berisiko mengubah atau menghapus database.
+8. Bagian yang perlu diperbaiki sebelum penyerahan.
 
-ID | Area review | Hal yang diperiksa | Status
+Berikan temuan dan rekomendasi berdasarkan tingkat risiko. Jangan menyatakan proyek bebas bug hanya berdasarkan pemeriksaan teks. Jelaskan perubahan yang disarankan sebelum mengubah file.
 
-R-01 | API | Endpoint dan metode HTTP sesuai dengan route aktual. | Perlu diverifikasi terhadap kode.
+## 7. Checklist Review Teknis
 
-R-02 | Request dan response | Nama field, format data, dan validasi sesuai implementasi. | Perlu diverifikasi terhadap kode.
+| ID | Area Review | Hal yang Diperiksa | Status |
+|---|---|---|---|
+| R-01 | API | Endpoint dan metode HTTP sesuai route aktual. | Perlu diverifikasi terhadap kode. |
+| R-02 | Request dan Response | Nama field, format data, dan validasi sesuai implementasi. | Perlu diverifikasi terhadap kode. |
+| R-03 | Autentikasi | Login mahasiswa dan validasi JWT berjalan sesuai kebutuhan. | Perlu diverifikasi terhadap kode dan pengujian. |
+| R-04 | Otorisasi | Mahasiswa hanya dapat mengakses transaksi miliknya sendiri. | Perlu pengujian. |
+| R-05 | Peminjaman | Stok tersedia dan batas maksimal tiga buku aktif diterapkan. | Dilaporkan dalam PRD; perlu pemeriksaan ulang jika implementasi berubah. |
+| R-06 | Jatuh Tempo | Jatuh tempo dihitung tujuh hari setelah peminjaman. | Dilaporkan dalam PRD; perlu pemeriksaan ulang jika implementasi berubah. |
+| R-07 | Pengembalian | Status transaksi dan stok berubah sesuai proses pengembalian. | Dilaporkan dalam PRD; perlu pemeriksaan ulang jika implementasi berubah. |
+| R-08 | Database | Struktur tabel, relasi, dan koneksi sesuai kode backend. | Perlu diverifikasi. |
+| R-09 | Dokumentasi | Dokumentasi API sesuai endpoint aktual. | Perlu perbandingan akhir. |
+| R-10 | Keamanan | Tidak ada password, token, API key, atau kredensial dalam dokumentasi dan repository. | Perlu pemeriksaan akhir. |
 
-R-03 | Autentikasi | Login mahasiswa dan validasi JWT berjalan sesuai kebutuhan. | Perlu diverifikasi terhadap kode dan pengujian.
+## 8. Catatan Hasil Review
 
-R-04 | Otorisasi | Mahasiswa hanya dapat mengakses transaksi peminjamannya sendiri. | Perlu pengujian.
+| Tanggal | Reviewer/Alat | Ruang Lingkup | Temuan | Keputusan/Tindakan | Bukti Verifikasi |
+|---|---|---|---|---|---|
+| [Isi tanggal] | Claude | Struktur database dan aturan peminjaman | Membantu penyusunan dan penyesuaian struktur database. | Sesuaikan dengan keputusan aktual tim. | Struktur database atau riwayat percakapan. |
+| [Isi tanggal] | ChatGPT | Endpoint API | Membantu pengembangan dan peninjauan endpoint API. | Sesuaikan dengan keputusan aktual tim. | Kode endpoint atau riwayat percakapan. |
+| [Isi tanggal] | Gemini/DeepSeek | [Bagian yang diperiksa] | [Temuan berdasarkan aktivitas aktual] | [Diterima/diubah/ditolak] | [File, log, atau tangkapan layar] |
+| [Isi tanggal] | Manual/Postman | Pengujian API | Pengujian login, buku, peminjaman, dan pengembalian dilaporkan dalam PRD. | Cocokkan dengan implementasi terbaru. | Tangkapan layar atau hasil request Postman. |
 
-R-05 | Peminjaman | Stok buku tersedia dan batas maksimal tiga buku aktif diterapkan. | Hasil pengujian dilaporkan dalam PRD; periksa ulang jika implementasi berubah.
+### 8.1 Format Pencatatan Satu Temuan Review
 
-R-06 | Jatuh tempo | Tanggal jatuh tempo dihitung tujuh hari setelah tanggal peminjaman. | Hasil pengujian dilaporkan dalam PRD; periksa ulang jika implementasi berubah.
+| Komponen | Keterangan |
+|---|---|
+| ID | [R-xx] |
+| Tanggal | [Tanggal pemeriksaan] |
+| Sumber yang Diperiksa | [File, endpoint, kode, atau hasil pengujian] |
+| Temuan | [Uraian masalah atau hasil pemeriksaan] |
+| Bukti | [Kutipan kode, hasil request, atau lokasi file] |
+| Dampak | [Risiko atau pengaruh terhadap sistem] |
+| Rekomendasi | [Tindakan yang disarankan] |
+| Keputusan Tim | [Diterima/diubah/ditolak] |
+| Hasil Verifikasi | [Hasil aktual atau belum diuji] |
 
-R-07 | Pengembalian | Status transaksi dan stok buku berubah sesuai proses pengembalian. | Hasil pengujian dilaporkan dalam PRD; periksa ulang jika implementasi berubah.
+Catatan: Isi tanggal dan keputusan berdasarkan riwayat kerja yang sebenarnya. Jangan membuat hasil review seolah-olah sudah terjadi jika tidak ada bukti pendukung.
 
-R-08 | Database | Struktur tabel, relasi, dan koneksi database sesuai dengan kode backend. | Perlu diverifikasi terhadap kode dan database.
+## 9. Pencatatan Pengujian
 
-R-09 | Dokumentasi | Dokumentasi API dan laporan sesuai dengan endpoint aktual. | Perlu perbandingan akhir.
+Berdasarkan laporan pengujian dalam PRD Kelompok 4, pengujian API dilakukan menggunakan Postman. Pengujian yang dilaporkan meliputi login, daftar dan detail buku, peminjaman, penolakan peminjaman, pengembalian, dan perubahan stok.
 
-R-10 | Keamanan | Tidak terdapat password, token, API key, atau kredensial dalam dokumentasi dan repository. | Perlu pemeriksaan akhir.
-8. Catatan Hasil Review
-Catatan hasil review digunakan untuk mencatat pemeriksaan yang benar-benar dilakukan oleh anggota kelompok maupun dengan bantuan AI. Temuan perlu dilengkapi bukti agar keputusan perbaikan dapat ditelusuri kembali.
+| ID | Skenario | Hasil yang Diharapkan | Hasil yang Dilaporkan dalam PRD | Status | Bukti |
+|---|---|---|---|---|---|
+| T-01 | Login dengan kredensial valid | Login berhasil dan token JWT diberikan. | Berhasil sesuai laporan PRD. | Lulus dalam PRD. | Bukti pengujian Postman. |
+| T-02 | Login dengan kredensial salah | Login ditolak dengan respons autentikasi yang sesuai. | 401 Unauthorized. | Lulus dalam PRD. | Bukti pengujian Postman. |
+| T-03 | Melihat daftar dan detail buku | Data buku ditampilkan sesuai kebutuhan akses. | Data buku ditampilkan sesuai laporan PRD. | Lulus dalam PRD. | Bukti pengujian Postman. |
+| T-04 | Meminjam buku yang tersedia | Transaksi dibuat, stok berkurang, dan jatuh tempo ditetapkan tujuh hari setelah peminjaman. | 201 Created; tanggal pinjam 20 Oktober 2026 dan jatuh tempo 27 Oktober 2026. | Lulus dalam PRD. | Gambar 8 pada PRD. |
+| T-05 | Meminjam buku yang stoknya habis | Permintaan ditolak dan stok tidak berkurang. | 400 Bad Request dengan pesan "Stok habis". | Lulus dalam PRD. | Gambar 9 pada PRD. |
+| T-06 | Meminjam buku ketika memiliki tiga buku aktif | Permintaan ditolak karena batas maksimal tercapai. | 400 Bad Request dengan pesan batas tiga buku aktif. | Lulus dalam PRD. | Gambar 10 pada PRD. |
+| T-07 | Mengembalikan buku | Status transaksi berubah menjadi dikembalikan dan tanggal pengembalian tercatat. | 200 OK dengan pesan "Buku berhasil dikembalikan" dan status `returned`. | Lulus dalam PRD. | Gambar 12 pada PRD. |
+| T-08 | Memeriksa stok setelah transaksi | Stok dan status buku diperbarui sesuai proses peminjaman atau pengembalian. | Pembaruan stok/status dilaporkan dalam PRD. | Lulus sesuai laporan PRD. | Bukti pengujian stok dalam PRD. |
+| T-09 | Meminjam buku yang sama dua kali | Permintaan kedua ditolak jika aturan tersebut diterapkan. | Penolakan dengan pesan "Anda sudah meminjam buku ini" dilaporkan dalam PRD. | Perlu pemeriksaan ulang. | Bukti pengujian peminjaman buku yang sama. |
 
-Tanggal | Reviewer/alat | Ruang lingkup | Temuan | Keputusan/tindakan | Bukti verifikasi
+Catatan: Status di atas merupakan status yang dilaporkan dalam PRD, bukan pengujian baru yang dilakukan saat dokumentasi ini disusun. Jika kode berubah, lakukan pengujian ulang dan sesuaikan status dengan bukti terbaru.
 
-[Isi tanggal] | Claude | Struktur database dan aturan peminjaman | Membantu penyusunan dan penyesuaian struktur database sesuai kebutuhan sistem. | Sesuaikan dengan keputusan aktual tim. | Struktur database atau riwayat percakapan.
+## 10. Batasan dan Risiko Penggunaan AI
 
-[Isi tanggal] | ChatGPT | Endpoint API | Membantu pengembangan dan peninjauan endpoint API berdasarkan kebutuhan sistem. | Sesuaikan dengan keputusan aktual tim. | Kode endpoint, dokumentasi, atau riwayat percakapan.
+Penggunaan AI dalam pengembangan Sistem Peminjaman Buku memiliki beberapa batasan dan risiko.
 
-[Isi tanggal] | Gemini/DeepSeek | [Isi bagian yang benar-benar diperiksa] | [Isi temuan berdasarkan aktivitas aktual] | [Diterima/diubah/ditolak] | [File, log, atau tangkapan layar].
-
-[Isi tanggal] | Manual/Postman | Pengujian API | Pengujian fitur login, buku, peminjaman, dan pengembalian dilaporkan dalam PRD. | Cocokkan kembali dengan implementasi terbaru. | Tangkapan layar atau hasil request Postman.
-
-Format satu temuan review:
-
-ID: [R-xx]
-
-Tanggal: [tanggal pemeriksaan]
-
-Sumber yang diperiksa: [file, endpoint, kode, atau hasil pengujian]
-
-Temuan: [uraian masalah atau hasil pemeriksaan]
-
-Bukti: [kutipan kode, hasil request, atau lokasi file]
-
-Dampak: [risiko atau pengaruh terhadap sistem]
-
-Rekomendasi: [tindakan yang disarankan]
-
-Keputusan tim: [diterima/diubah/ditolak]
-
-Hasil verifikasi setelah tindakan: [hasil aktual atau belum diuji]
-
-Catatan: Isi tanggal dan keputusan berdasarkan riwayat kerja yang sebenarnya. Jangan membuat tanggal atau hasil review seolah-olah sudah terjadi jika tidak ada bukti pendukung.
-9. Pencatatan Pengujian
-Berdasarkan PRD Kelompok 4, pengujian API dilakukan menggunakan Postman. Hasil pengujian yang dilaporkan dalam PRD mencakup login, daftar dan detail buku, peminjaman, penolakan peminjaman, pengembalian, serta perubahan stok.
-
-ID | Skenario | Hasil yang diharapkan | Hasil yang dilaporkan dalam PRD | Status | Bukti
-
-T-01 | Login dengan kredensial valid | Login berhasil dan token JWT diberikan. | Berhasil sesuai laporan PRD. | Lulus dalam PRD. | Bukti pengujian Postman.
-
-T-02 | Login dengan kredensial salah | Login ditolak dengan respons autentikasi yang sesuai. | Ditolak dengan 401 Unauthorized. | Lulus dalam PRD. | Bukti pengujian Postman.
-
-T-03 | Melihat daftar dan detail buku | Data buku dapat diakses menggunakan autentikasi yang sesuai. | Data buku ditampilkan sesuai laporan PRD. | Lulus dalam PRD. | Bukti pengujian Postman.
-
-T-04 | Meminjam buku yang tersedia | Transaksi peminjaman dibuat, stok berkurang, dan jatuh tempo ditetapkan tujuh hari setelah peminjaman. | Menghasilkan 201 Created; tanggal pinjam 20 Oktober 2026 dan jatuh tempo 27 Oktober 2026. | Lulus dalam PRD. | Gambar 8 pada PRD.
-
-T-05 | Meminjam buku yang stoknya habis | Permintaan ditolak dan stok tidak berkurang. | Menghasilkan 400 Bad Request dengan pesan "Stok habis". | Lulus dalam PRD. | Gambar 9 pada PRD.
-
-T-06 | Meminjam buku ketika sudah memiliki tiga buku aktif | Permintaan ditolak karena batas maksimal tercapai. | Menghasilkan 400 Bad Request dengan pesan "Gagal: Anda sudah memiliki 3 buku aktif." | Lulus dalam PRD. | Gambar 10 pada PRD.
-
-T-07 | Mengembalikan buku | Status transaksi berubah menjadi dikembalikan dan tanggal pengembalian tercatat. | Menghasilkan 200 OK dengan pesan "Buku berhasil dikembalikan" dan status transaksi berubah menjadi "returned". | Lulus dalam PRD. | Gambar 12 pada PRD.
-
-T-08 | Memeriksa stok setelah transaksi | Stok dan status buku diperbarui sesuai proses peminjaman atau pengembalian. | Pembaruan stok/status dilaporkan dalam PRD. | Lulus dalam PRD sesuai laporan. | Bukti pengujian stok dalam PRD.
-
-T-09 | Meminjam buku yang sama dua kali | Permintaan kedua ditolak jika aturan tersebut diterapkan. | PRD melaporkan penolakan dengan pesan "Anda sudah meminjam buku ini." | Periksa kesesuaian dengan checklist dan implementasi terbaru. | Gambar pengujian peminjaman buku yang sama dalam PRD.
-
-Catatan: Status di atas merupakan status yang dilaporkan dalam PRD, bukan pengujian baru yang dilakukan saat penyusunan dokumentasi ini. Jika kode berubah, lakukan pengujian ulang dan sesuaikan status dengan bukti terbaru.
-10. Batasan dan Risiko Penggunaan AI
-Penggunaan AI dalam pengembangan Sistem Peminjaman Buku memiliki beberapa batasan dan risiko yang perlu diperhatikan.
-1. AI dapat menghasilkan kode atau informasi yang tidak sesuai dengan struktur proyek dan versi teknologi yang digunakan.
+1. AI dapat menghasilkan kode atau informasi yang tidak sesuai dengan struktur proyek dan versi teknologi.
 2. Contoh request dan response dari AI bukan bukti bahwa API benar-benar menghasilkan respons tersebut.
-3. Saran perbaikan kode tidak membuktikan bahwa masalah sudah teratasi sebelum dilakukan pengujian.
-4. Struktur database yang disarankan AI harus dibandingkan dengan struktur database aktual.
-5. Dokumentasi endpoint harus disesuaikan dengan route dan implementasi yang benar-benar tersedia.
-6. Klaim keamanan tidak dapat dijamin hanya melalui pemeriksaan teks atau saran AI.
-7. Kesalahan dalam memahami kode yang dihasilkan AI dapat menyebabkan implementasi tidak sesuai dengan kebutuhan.
-8. Jika sumber atau bukti tidak cukup, informasi harus ditandai sebagai belum dapat diverifikasi.
-Oleh karena itu, anggota kelompok tetap bertanggung jawab untuk memeriksa kode, memahami alur sistem, menjalankan pengujian, dan menentukan apakah saran AI layak diterapkan.
-11. Privasi dan Keamanan Data
+3. Saran perbaikan kode tidak membuktikan masalah sudah teratasi sebelum dilakukan pengujian.
+4. Struktur database yang disarankan AI harus dibandingkan dengan database aktual.
+5. Dokumentasi endpoint harus sesuai dengan route yang benar-benar tersedia.
+6. Keamanan sistem tidak dapat dijamin hanya melalui pemeriksaan teks atau saran AI.
+7. Kesalahan memahami kode AI dapat menyebabkan implementasi tidak sesuai kebutuhan.
+8. Informasi yang tidak memiliki bukti cukup harus ditandai sebagai belum dapat diverifikasi.
+
+Anggota kelompok tetap bertanggung jawab memeriksa kode, memahami alur sistem, menjalankan pengujian, dan menentukan apakah saran AI layak diterapkan.
+
+## 11. Privasi dan Keamanan Data
+
 Dalam menggunakan Claude, ChatGPT, Gemini, dan DeepSeek, anggota kelompok perlu memperhatikan keamanan informasi proyek.
-1. Jangan mengunggah file .env, password, token JWT, API key, atau kredensial database ke prompt AI.
+
+1. Jangan mengunggah file `.env`, password, token JWT, API key, atau kredensial database ke prompt AI.
 2. Samarkan data pribadi dan data pengujian yang bersifat sensitif.
 3. Periksa screenshot, log, dan potongan kode sebelum membagikannya kepada AI.
 4. Periksa perintah yang disarankan AI sebelum dijalankan, terutama perintah yang dapat mengubah atau menghapus database.
 5. Buat cadangan sebelum melakukan perubahan database yang berisiko.
-6. Tinjau setiap perubahan kode sebelum dimasukkan ke branch utama atau di-push ke repository GitHub.
+6. Tinjau perubahan kode sebelum dimasukkan ke branch utama atau di-push ke GitHub.
 7. Pastikan dokumentasi yang dikumpulkan tidak memuat informasi rahasia yang dapat digunakan untuk mengakses sistem.
-Keamanan proyek tidak hanya bergantung pada AI, tetapi juga pada ketelitian anggota kelompok dalam memeriksa dan mengelola kode serta data yang digunakan.
 
-12. Kesimpulan
-Claude, ChatGPT, Gemini, dan DeepSeek digunakan sebagai alat bantu dalam proses pengembangan Sistem Peminjaman Buku Perpustakaan Kelompok 4. Berdasarkan PRD, Claude membantu pekerjaan penyusunan dan penyesuaian struktur database, sedangkan ChatGPT membantu pengembangan dan peninjauan endpoint API. Gemini dan DeepSeek juga tercantum sebagai AI assistant yang digunakan sesuai kebutuhan pengerjaan.
+Keamanan proyek tidak hanya bergantung pada AI, tetapi juga pada ketelitian anggota kelompok dalam memeriksa dan mengelola kode serta data.
+
+## 12. Kesimpulan
+
+Claude, ChatGPT, Gemini, dan DeepSeek digunakan sebagai alat bantu dalam proses pengembangan Sistem Peminjaman Buku Perpustakaan Kelompok 4. Berdasarkan pembagian peran yang tercatat, Claude membantu penyusunan dan penyesuaian struktur database, sedangkan ChatGPT membantu pengembangan dan peninjauan endpoint API. Gemini dan DeepSeek digunakan sesuai kebutuhan pengerjaan, dengan rincian aktivitas yang perlu disesuaikan berdasarkan riwayat penggunaan sebenarnya.
+
+Penggunaan AI membantu memahami kebutuhan sistem, menyusun solusi teknis, meninjau kode, dan menyiapkan dokumentasi pengujian. Namun, setiap hasil AI tetap perlu diperiksa melalui kode aktual, struktur database, dan pengujian API menggunakan Postman.
+
+Dokumentasi ini menjadi catatan penggunaan AI dan proses verifikasi dalam proyek. Keakuratan isi akhir tetap menjadi tanggung jawab anggota kelompok, terutama dalam memastikan pembagian peran AI, hasil review, status pengujian, dan bukti yang dilampirkan sesuai dengan aktivitas yang benar-benar dilakukan.
